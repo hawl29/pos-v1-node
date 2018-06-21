@@ -1,11 +1,11 @@
-const main = require('../main/main');
+const printInventory = require('../main/main');
 
 describe('pos', function () {
-    var allItems;
+
     var inputs;
 
+
     beforeEach(function () {
-        allItems = loadAllItems();
         inputs = [
             'ITEM000001',
             'ITEM000001',
@@ -19,7 +19,7 @@ describe('pos', function () {
         ];
     });
 
-    it('should print correct text', function () {
+    it('test_4 should print correct text', function () {
 
         spyOn(console, 'log');
 

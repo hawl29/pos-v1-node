@@ -39,6 +39,7 @@ function loadAllItems() {
     ];
 }
 
+
 function loadPromotions() {
     return [
         {

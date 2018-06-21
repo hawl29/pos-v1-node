@@ -1,63 +1,71 @@
-module.exports = function main() {
+const count = require('../main/count');
+const addMoreInformation = require('../main/addMoreInformation');
+const computeFree = require('./computeFree');
+const print = require('../main/print');
 
-};
-function count(inputs)
-{
-    var parten1=/^\w{4}\d{6}$/;
-    var after_count=new Array();
-    var count;
-    for(let i=0;i<inputs.length;i++)
-    {
-        count=1;
-        if(parten1.test(inputs[i]))
+function loadAllItems() {
+    return [
         {
-            for(var j=i+1;j<inputs.length;j++)
-            {
-                if(inputs[i]==inputs[j]) count++;
-                else break;
-            }
-            i=j-1;
-        }
-        else
+            barcode: 'ITEM000000',
+            name: '可口可乐',
+            unit: '瓶',
+            price: 3.00
+        },
         {
-            count=Number(inputs[i].substr(-1));
+            barcode: 'ITEM000001',
+            name: '雪碧',
+            unit: '瓶',
+            price: 3.00
+        },
+        {
+            barcode: 'ITEM000002',
+            name: '苹果',
+            unit: '斤',
+            price: 5.50
+        },
+        {
+            barcode: 'ITEM000003',
+            name: '荔枝',
+            unit: '斤',
+            price: 15.00
+        },
+        {
+            barcode: 'ITEM000004',
+            name: '电池',
+            unit: '个',
+            price: 2.00
+        },
+        {
+            barcode: 'ITEM000005',
+            name: '方便面',
+            unit: '袋',
+            price: 4.50
         }
-        var count_item=new Object();
-        count_item.id=inputs[i];
-        count_item.count=count;
-        after_count.push(count_item);
-    }
-    return after_count;
+    ];
 }
 
-/*function convert(inputs)
-{
-    var temp=inputs;
-    var all_items=loadAllItems();
-    var order_sheet=new Array();
-    var order_item=new Object();
-    var count;
-    for(let i=0;i<temp.length;)
-    {
-        count=1;
-        for(var j=i+1;j<temp.length;j++)
+
+function loadPromotions() {
+    return [
         {
-            if(temp[i]==temp[j]) count++;
-            else break;
+            type: 'BUY_TWO_GET_ONE_FREE',
+            barcodes: [
+                'ITEM000000',
+                'ITEM000001',
+                'ITEM000005'
+            ]
         }
-        let k=all_items.find(whichgoods);
-        order_item.id=all_items[k].barcode;
-        order_item.name=all_items[k].name;
-        order_item.price=all_items[k].price;
-        order_item.count=count;
-        order_item.unit=all_items[k].unit;
-        order_item.subtotal=count*Number(order_item.price);
-        order_sheet.push(order_item);
-    }
-    console.log(order_sheet);
-    return order_sheet;
+    ];
 }
-function whichgoods(goods)
+
+
+
+function printInventory(inputs)
 {
-    return temp[i]==goods.barcode;
-}*/
+   var after_count = count(inputs);
+   var after_add = addMoreInformation(after_count);
+   var after_compute = computeFree(after_add);
+   console.log(print(after_compute));
+}
+
+module.exports = printInventory;
