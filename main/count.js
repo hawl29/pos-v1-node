@@ -2,7 +2,7 @@ function count(inputs) {
     var parten1 = /^\w{4}\d{6}$/;
     var after_count = new Array();
     var count;
-    for (let i = 0; inputs && i < inputs.length; i++) {
+    for (let i = 0; i < inputs.length; i++) {
         count = 1;
         if (parten1.test(inputs[i])) {
             for (var j = i + 1; j < inputs.length; j++) {

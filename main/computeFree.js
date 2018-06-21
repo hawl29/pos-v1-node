@@ -16,9 +16,9 @@ function computeFree(after_add)
     var after_compute = after_add;
     var promotion_items = loadPromotions();
     promotion_items=promotion_items[0].barcodes;
-    for(let i=0;after_compute && i<after_compute.length;i++)
+    for(let i=0;i<after_compute.length;i++)
     {
-        for(let j=0;promotion_items && j<promotion_items.length;j++)
+        for(let j=0;j<promotion_items.length;j++)
         {
             if(after_compute[i].id == promotion_items[j])
             {

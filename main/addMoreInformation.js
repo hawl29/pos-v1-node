@@ -43,10 +43,10 @@ function addMoreInformation(after_count)
 {
     var after_add=after_count;
     var items=loadAllItems();
-    for(var i=0;after_count && i<after_add.length;i++)
+    for(var i=0;i<after_add.length;i++)
     {
 
-        for(var j=0;items && j<items.length;j++)
+        for(var j=0;j<items.length;j++)
         {
 
             if(after_add[i].id==items[j].barcode)

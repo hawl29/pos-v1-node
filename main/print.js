@@ -4,7 +4,7 @@ function print(after_compute)
     var print_box = '***<没钱赚商店>购物清单***\n';
     var total_price = 0;
     var save = 0.00;
-    for(let i=0;after_print && i<after_print.length;i++)
+    for(let i=0;i<after_print.length;i++)
     {
         print_box+='名称：' + after_print[i].name +'，'+
                    '数量：' + after_print[i].count + after_print[i].unit + '，' +
@@ -15,7 +15,7 @@ function print(after_compute)
         total_price += after_print[i].subtotal;
     }
     print_box += '----------------------\n' + '挥泪赠送商品：\n';
-    for(let i=0;after_print && i<after_print.length;i++)
+    for(let i=0;i<after_print.length;i++)
     {
         if(after_print[i].free != 0)
         {
